@@ -11,7 +11,7 @@ import Map from './Map'
 import './App.css';
 
 function App() {
-  const { countUp: populationCount, update: setPopulationCount } = useCountUp({
+  const { countUp: displayedPopulationCount, update: setDisplayedPopulationCount } = useCountUp({
     start: 0,
     end: 0,
     duration: 2,
@@ -19,23 +19,45 @@ function App() {
     useEasing: false
   });
 
-  const tick = (initialPopulationCount) => {
-    let currentPopulationCount = initialPopulationCount;
-    let targetPopulationCount = getPopulationInDaylight(new Date(new Date().getTime() + 5 * 60 * 1000));
-    const diffPerSmallTick = (targetPopulationCount - currentPopulationCount) / 150;
+  const [targetPopulationCount, setTargetPopulationCount] = useState(0)
+  const [populationCount, setPopulationCount] = useState(0)
+
+  const easedSetPopulationCount = (target) => {
+    let current = populationCount;
+    const diffPerMiniTick = (target - populationCount) / 150;
+    console.log('[easedSetPopulationCount] diffPerMiniTick', diffPerMiniTick)
+    let counter = 0;
     const miniTick = setInterval(() => {
-      currentPopulationCount += diffPerSmallTick
-      setPopulationCount(currentPopulationCount)
+      if (counter >= 150) {
+        clearInterval(miniTick)
+        setPopulationCount(current)
+      }
+      current += diffPerMiniTick
+      setDisplayedPopulationCount(current)
+      counter++
     }, 2 * 1000)
-    setTimeout(() => {
-      clearInterval(miniTick)
-    }, (5 * 60 * 1000) - (500))
   }
 
   useEffect(() => {
+    if (populationCount > 0) {
+      console.log('[useEffect] new populationCount', populationCount)
+      const target = getPopulationInDaylight(new Date(new Date().getTime() + 5 * 60 * 1000))
+      setTargetPopulationCount(target)
+    }
+  }, [populationCount])
+
+  useEffect(() => {
+    if (targetPopulationCount > 0) {
+      console.log('[useEffect] new targetPopulationCount', targetPopulationCount)
+      easedSetPopulationCount(targetPopulationCount)
+    }
+  }, [targetPopulationCount])
+
+  useEffect(() => {
     const initialPopulationCount = getPopulationInDaylight(new Date())
+    
+    setDisplayedPopulationCount(initialPopulationCount)
     setPopulationCount(initialPopulationCount)
-    tick(initialPopulationCount)
   }, [])
 
   return (
@@ -53,7 +75,7 @@ function App() {
       <Row>
         <Col>
           <div className="population-count">
-            {populationCount}
+            {displayedPopulationCount}
           </div>
         </Col>
       </Row>
