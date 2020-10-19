@@ -1,7 +1,9 @@
 import React from "react";
 import mapboxgl from 'mapbox-gl';
 
-import { getDarknessPolygon } from './lib/population-calculator/index'
+import getDarknessPolygon from './getDarknessPolygon'
+import getPopulationInDaylight from './getPopulationInDaylight'
+import population from './population.json';
 
 class Map extends React.Component {
   constructor(props) {
@@ -16,6 +18,17 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
+
+    // console.log('population.length', population.length);
+
+    // for (let i = 0; i < population.length; i++) {
+
+    //   console.log('population[i].length', population[i].length)
+    // }
+
+    const populationInDaylight = getPopulationInDaylight(new Date());
+
+    console.log('populationInDaylight', populationInDaylight);
 
     const map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -49,10 +62,6 @@ class Map extends React.Component {
         }
       });
     });
-  }
-
-  _insertMapLayers(map, trackGeoJson, pointsGeoJson) {
-
   }
 
   render() {

@@ -1,14 +1,5 @@
-import * as turf from '@turf/turf'
-
-import populationDensity from './population-density.json';
-
-function getLat(geoJsonPoint) {
-  return geoJsonPoint.geometry.coordinates[1]
-}
-
-function getLng(geoJsonPoint) {
-  return geoJsonPoint.geometry.coordinates[0]
-}
+import { point, circle } from '@turf/turf'
+import { getLng, getLat } from './helpers'
 
 // Adapted from https://github.com/rossengeorgiev/nite-overlay/blob/master/nite-overlay.js
 function getSunCenteroid(date) {
@@ -32,16 +23,16 @@ function getSunCenteroid(date) {
   var true_solar_time_in_deg = ((ms_past_midnight + rq_of_time * 60000) % 86400000) / 240000;
   var lng = -((true_solar_time_in_deg < 0) ? true_solar_time_in_deg + 180 : true_solar_time_in_deg - 180);
 
-  return turf.point([lng, lat]);
+  return point([lng, lat]);
 }
 
 function getDarknessCenteroid(sunPosition) {
   const sunLng = getLng(sunPosition);
   const sunLat = getLat(sunPosition);
   const darkLng = (sunLng + 180) > 180 ? (sunLng - 180) : (sunLng + 180)
-  const darkLat = -sunLat;  
+  const darkLat = -sunLat;
 
-  return turf.point([darkLng, darkLat])
+  return point([darkLng, darkLat])
 }
 
 // Adapted from https://github.com/rossengeorgiev/nite-overlay/blob/master/nite-overlay.js
@@ -57,12 +48,14 @@ function getDarknessRadiusFromAngle(angle) {
   return (shadow_radius - twilight_dist) / 1000;
 };
 
-export function getDarknessPolygon(date) {
+function getDarknessPolygon(date) {
   date = (date instanceof Date) ? date : new Date();
 
   const sunPosition = getSunCenteroid(date);
   const darkPosition = getDarknessCenteroid(sunPosition)
   const radius = getDarknessRadiusFromAngle(6); // use civil twilight
   const options = { steps: 360, units: 'kilometers' };
-  return turf.circle(darkPosition, radius, options);
+  return circle(darkPosition, radius, options);
 }
+
+export default getDarknessPolygon;
