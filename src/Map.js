@@ -1,59 +1,56 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import mapboxgl from 'mapbox-gl';
 
 import getDarknessPolygon from './getDarknessPolygon'
 
-class Map extends React.Component {
-  constructor(props) {
-    super(props);
+function Map() {
+  const [map, setMap] = useState(null);
+  const mapContainer = useRef(null);
+
+  useEffect(() => {
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2V0YXBhazIwMTkiLCJhIjoiY2szdzJhdGx3MDVpaDNpcGltZ3luNDUyMSJ9.lwsV4FsgU1SfbS6QRFlO_A';
-    this.state = {
-      lng: 0, // Initial state for mapbox
-      lat: 0, // Initial state for mapbox
-      zoom: 0, // Initial state for mapbox
-      darknessPolygon: getDarknessPolygon(new Date())
+    const initializeMap = ({ setMap, mapContainer }) => {
+      const map = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [0, 0],
+        zoom: 0
+      });
+
+      map.on('load', () => {
+        setMap(map);
+
+        map.addSource('darkness', {
+          'type': 'geojson',
+          'data': getDarknessPolygon(new Date())
+        });
+
+        map.addLayer({
+          'id': 'darkness',
+          'type': 'fill',
+          'source': 'darkness',
+          'layout': {},
+          'paint': {
+            'fill-color': '#000000',
+            'fill-opacity': 0.2
+          }
+        });
+
+        map.fitBounds([[-180, 90], [180, -60]], {
+          padding: { top: 0, bottom: 0, left: 0, right: 0 }
+        });
+      });
+
     };
-  }
 
-  componentDidMount() {
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom
-    });
+    if (!map) initializeMap({ setMap, mapContainer });
+  }, [map]);
 
-
-    map.on('load', () => {
-      map.addSource('darkness', {
-        'type': 'geojson',
-        'data': this.state.darknessPolygon
-      });
-
-      map.addLayer({
-        'id': 'darkness',
-        'type': 'fill',
-        'source': 'darkness',
-        'layout': {},
-        'paint': {
-          'fill-color': '#000000',
-          'fill-opacity': 0.2
-        }
-      });
-
-      map.fitBounds([[-180, 90], [180, -60]], {
-        padding: { top: 0, bottom: 0, left: 0, right: 0 }
-      });
-    });
-  }
-
-  render() {
-    return (
-      <>
-        <div ref={el => this.mapContainer = el} className="map-container" />
-      </>
-    )
-  }
+  return (
+    <>
+      <div ref={mapContainer} className="map-container"></div>
+    </>
+  );
 }
 
 export default Map;
