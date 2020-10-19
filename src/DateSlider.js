@@ -32,7 +32,7 @@ function DateSlider({ value, onChange, onAfterChange }) {
         min={-24}
         max={24}
         tooltip={'auto'}
-        tooltipPlacement={'bottom'}
+        tooltipPlacement={'top'}
         tooltipLabel={tooltipLabelFormatter}
         tooltipStyle={{
           'fontFamily': "'Poppins', sans-serif"

@@ -111,16 +111,6 @@ function App() {
           </Row>
           <Row>
             <Col>
-              <div className="population-count-label">
-                Number of people receiving sunlight:
-          </div>
-              <div className="population-count">
-                {displayedPopulationCount}
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
               <DateSlider
                 value={hourOffset}
                 onChange={changeEvent => setHourOffset(changeEvent.target.value)}
@@ -129,6 +119,16 @@ function App() {
                 min={-24}
                 max={24}
               />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div className="population-count-label">
+                Number of people receiving sunlight:
+          </div>
+              <div className="population-count">
+                {displayedPopulationCount}
+              </div>
             </Col>
           </Row>
           <Row>
