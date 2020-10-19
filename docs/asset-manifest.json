@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sunlight-all-over-the-world/static/css/main.ea7251d2.chunk.css",
+    "main.css": "/sunlight-all-over-the-world/static/css/main.de081fe3.chunk.css",
     "main.js": "/sunlight-all-over-the-world/static/js/main.af925b41.chunk.js",
     "main.js.map": "/sunlight-all-over-the-world/static/js/main.af925b41.chunk.js.map",
     "runtime-main.js": "/sunlight-all-over-the-world/static/js/runtime-main.f21a386f.js",
@@ -9,17 +9,17 @@
     "static/js/2.1a7d059a.chunk.js": "/sunlight-all-over-the-world/static/js/2.1a7d059a.chunk.js",
     "static/js/2.1a7d059a.chunk.js.map": "/sunlight-all-over-the-world/static/js/2.1a7d059a.chunk.js.map",
     "index.html": "/sunlight-all-over-the-world/index.html",
-    "precache-manifest.6aa2de6ad1567c42e390473aea48945b.js": "/sunlight-all-over-the-world/precache-manifest.6aa2de6ad1567c42e390473aea48945b.js",
+    "precache-manifest.b6a925405138d0fd6a5ca8096e1d35fb.js": "/sunlight-all-over-the-world/precache-manifest.b6a925405138d0fd6a5ca8096e1d35fb.js",
     "service-worker.js": "/sunlight-all-over-the-world/service-worker.js",
     "static/css/2.d9df7b93.chunk.css.map": "/sunlight-all-over-the-world/static/css/2.d9df7b93.chunk.css.map",
-    "static/css/main.ea7251d2.chunk.css.map": "/sunlight-all-over-the-world/static/css/main.ea7251d2.chunk.css.map",
+    "static/css/main.de081fe3.chunk.css.map": "/sunlight-all-over-the-world/static/css/main.de081fe3.chunk.css.map",
     "static/js/2.1a7d059a.chunk.js.LICENSE.txt": "/sunlight-all-over-the-world/static/js/2.1a7d059a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f21a386f.js",
     "static/css/2.d9df7b93.chunk.css",
     "static/js/2.1a7d059a.chunk.js",
-    "static/css/main.ea7251d2.chunk.css",
+    "static/css/main.de081fe3.chunk.css",
     "static/js/main.af925b41.chunk.js"
   ]
 }
