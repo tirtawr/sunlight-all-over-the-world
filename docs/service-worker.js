@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/sunlight-all-over-the-world/precache-manifest.e06c6e2b8b69d89e194714430b0d5398.js"
+  "/sunlight-all-over-the-world/precache-manifest.5c812581e879c99addcbd6d8eba9da83.js"
 );
 
 self.addEventListener('message', (event) => {
