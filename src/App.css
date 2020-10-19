@@ -1,6 +1,24 @@
 body {
   background-color: #F7F7FF;
-  min-height: 100vh;
+}
+
+main {
+  padding-bottom: 42px;
+}
+
+.page-container {
+  min-height: 100vh !important;
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
+  padding: 12px;
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 12px;
 }
 
 body h1 {
@@ -72,20 +90,10 @@ body h1 {
   text-align: justify;
 }
 
-.description a {
+body a {
   color: #FE5F55;
 }
 
-.description a:hover {
+body a:hover {
   color: #FE5F55;
 }
-
-.footer {
-  bottom: 0;
-  text-align: center;
-  width: 100%;
-  padding: 12px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-}
-

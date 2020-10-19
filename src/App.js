@@ -99,70 +99,73 @@ function App() {
   }
 
   return (
-    <Container className="px-5 pt-5">
-      <Row>
-        <Col>
-          <h1 className="text-center">Daylight All Over The World</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Map currentDate={currentDate} />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <div className="population-count-label">
-            Number of people experiencing daylight:
+    <div className="page-container">
+      <main>
+        <Container className="px-5 pt-5">
+          <Row>
+            <Col>
+              <h1 className="text-center">Sunlight All Over The World</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Map currentDate={currentDate} />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div className="population-count-label">
+                Number of people receiving sunlight:
           </div>
-          <div className="population-count">
-            {displayedPopulationCount}
-          </div>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <DateSlider
-            value={hourOffset}
-            onChange={changeEvent => setHourOffset(changeEvent.target.value)}
-            onAfterChange={onDateChanged}
-            step={1}
-            min={-24}
-            max={24}
-          />
-        </Col>
-      </Row>
-      <Row>
-        <div className="fun-fact">
-          <span className="fun-fact-number mr-2">{`${populationPercentage}%`}</span>
-          <span>{` of the world's population are receiving sunlight`}</span>
-          
-        </div>
-      </Row>
-      <Row>
-        <div className="fun-fact">
-          <span>{`Every second, `}</span>
-          <span className="fun-fact-number mx-2">{`${displayedPopulationDiffPerSecond} ${populationDiffPerSecond > 0 ? 'More' : 'Less'}`}</span>
-          <span>{` people are receiving sunlight`}</span>
-        </div>
-      </Row>
-      <Row>
-        <Col>
-        <div className="description">
-          <p>
-            The sun is something we all share. Each day (for the most part) we take turns in enjoying our marvelous sun. Exposure to sunlight increases the brain’s release of serotonin, stabilizing our mood and increasing feelings of well-being.
-          </p>
-          <p>
-            This calculation uses United Nation's 2020 world population distribution estimate gathered through <a href="https://sedac.ciesin.columbia.edu/data/set/gpw-v4-admin-unit-center-points-population-estimates-rev11/data-download" target="_blank" rel="noopener noreferrer">NASA’s Socioeconomic Data and Applications Center (SEDAC)</a>.
-          </p>
+              <div className="population-count">
+                {displayedPopulationCount}
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <DateSlider
+                value={hourOffset}
+                onChange={changeEvent => setHourOffset(changeEvent.target.value)}
+                onAfterChange={onDateChanged}
+                step={1}
+                min={-24}
+                max={24}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <div className="fun-fact">
+              <span className="fun-fact-number mr-2">{`${populationPercentage}%`}</span>
+              <span>{` of the world's population are receiving sunlight`}</span>
 
-        </div>
-        </Col>
-      </Row>
-      <div className="footer">
-        Made with ❤️&nbsp;by Tirta Rachman - View on GitHub - Report Bug
-      </div>
-    </Container>
+            </div>
+          </Row>
+          <Row>
+            <div className="fun-fact">
+              <span>{`Every second, `}</span>
+              <span className="fun-fact-number mx-2">{`${displayedPopulationDiffPerSecond} ${populationDiffPerSecond > 0 ? 'More' : 'Less'}`}</span>
+              <span>{` people are receiving sunlight`}</span>
+            </div>
+          </Row>
+          <Row>
+            <Col>
+              <div className="description">
+                <p>
+                  The sun is something we all share. Each day (for the most part) we take turns in enjoying our marvelous sun. Exposure to sunlight increases the brain’s release of serotonin, stabilizing our mood and increasing feelings of well-being.
+                </p>
+                <p>
+                  This calculation uses United Nation's 2020 world population distribution estimate gathered through <a href="https://sedac.ciesin.columbia.edu/data/set/gpw-v4-admin-unit-center-points-population-estimates-rev11/data-download" target="_blank" rel="noopener noreferrer">NASA’s Socioeconomic Data and Applications Center (SEDAC)</a>.
+                </p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </main>
+      <footer>
+        Made with ♥ by <a href="https://tirtawr.com" target="_blank" rel="noopener noreferrer">Tirta Rachman</a> - <a href="https://github.com/tirtawr/sunlight-all-over-the-world" target="_blank" rel="noopener noreferrer">View on GitHub</a> - <a href="https://github.com/tirtawr/sunlight-all-over-the-world/issues" target="_blank" rel="noopener noreferrer">Report A Bug</a>
+      </footer>
+    </div>
   );
 }
 
