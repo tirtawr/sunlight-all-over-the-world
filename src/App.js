@@ -4,15 +4,16 @@ import { useCountUp } from 'react-countup';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import RangeSlider from 'react-bootstrap-range-slider';
+
 
 import getPopulationInDaylight from './getPopulationInDaylight'
+import DateSlider from './DateSlider'
 import Map from './Map'
 
 import './App.css';
 
 function App() {
-  const { countUp: displayedPopulationCount, update: setDisplayedPopulationCount, pauseResume: toggleAnimation } = useCountUp({
+  const { countUp: displayedPopulationCount, update: setDisplayedPopulationCount, pauseResume: togglePopulationCountAnimation } = useCountUp({
     start: 0,
     end: 0,
     duration: 1,
@@ -20,8 +21,18 @@ function App() {
     useEasing: false
   });
 
+  const { countUp: displayedPopulationDiffPerSecond, update: setDisplayedPopulationDiffPerSecond, pauseResume: togglePopulationDiffPerSecondAnimation } = useCountUp({
+    start: 0,
+    end: 0,
+    duration: 1,
+    separator: ',',
+    useEasing: true
+  });
+
   const [targetPopulationCount, setTargetPopulationCount] = useState(0)
   const [populationCount, setPopulationCount] = useState(0)
+  const [populationPercentage, setPopulationPercentage] = useState(0)
+  const [populationDiffPerSecond, setPopulationDiffPerSecond] = useState(0)
   const [currentDate, setCurrentDate] = useState(new Date())
   const [hourOffset, setHourOffset] = useState(0)
   const [miniTickInterval, setMiniTickInterval] = useState(null)
@@ -32,16 +43,17 @@ function App() {
 
   const easedSetPopulationCount = (target) => {
     let current = populationCount;
-    const diffPerMiniTick = (target - populationCount) / 300;
-    console.log('[easedSetPopulationCount] diffPerMiniTick', diffPerMiniTick)
+    const diffPerSecond = (target - populationCount) / 300;
+    setPopulationDiffPerSecond(diffPerSecond)
+    console.log('[easedSetPopulationCount] diffPerSecond', diffPerSecond)
     let counter = 0;
     const miniTick = () => {
       if (counter >= 300) {
         clearInterval(miniTickInterval)
         setPopulationCount(current)
       }
-      current += diffPerMiniTick
-      toggleAnimation()
+      current += diffPerSecond
+      togglePopulationCountAnimation()
       setDisplayedPopulationCount(current)
       counter++
     }
@@ -51,8 +63,15 @@ function App() {
   }
 
   useEffect(() => {
+    if (populationDiffPerSecond === 0) return; 
+    togglePopulationDiffPerSecondAnimation()
+    setDisplayedPopulationDiffPerSecond(Math.abs(Math.round(populationDiffPerSecond)))
+  }, [populationDiffPerSecond])
+
+  useEffect(() => {
     if (populationCount > 0) {
       console.log('[useEffect] new populationCount', populationCount)
+      setPopulationPercentage(Math.round(populationCount / 7800000000 * 100))
       const target = getPopulationInDaylight(new Date(currentDate.getTime() + 5 * 60 * 1000))
       setTargetPopulationCount(target)
     }
@@ -72,6 +91,7 @@ function App() {
     setPopulationCount(initialPopulationCount)
   }, [])
 
+  // a hack to avoid precalculation
   const onDateChanged = (event) => {
     const offset = event.target.value
     setPopulationCount(getPopulationInDaylight(new Date(new Date().getTime() + offset * 60 * 60 * 1000)))
@@ -79,7 +99,7 @@ function App() {
   }
 
   return (
-    <Container className="p-5">
+    <Container className="px-5 pt-5">
       <Row>
         <Col>
           <h1 className="text-center">Daylight All Over The World</h1>
@@ -92,6 +112,9 @@ function App() {
       </Row>
       <Row>
         <Col>
+          <div className="population-count-label">
+            Number of people experiencing daylight:
+          </div>
           <div className="population-count">
             {displayedPopulationCount}
           </div>
@@ -99,7 +122,7 @@ function App() {
       </Row>
       <Row>
         <Col>
-          <RangeSlider
+          <DateSlider
             value={hourOffset}
             onChange={changeEvent => setHourOffset(changeEvent.target.value)}
             onAfterChange={onDateChanged}
@@ -109,6 +132,36 @@ function App() {
           />
         </Col>
       </Row>
+      <Row>
+        <div className="fun-fact">
+          <span className="fun-fact-number mr-2">{`${populationPercentage}%`}</span>
+          <span>{` of the world's population are receiving sunlight`}</span>
+          
+        </div>
+      </Row>
+      <Row>
+        <div className="fun-fact">
+          <span>{`Every second, `}</span>
+          <span className="fun-fact-number mx-2">{`${displayedPopulationDiffPerSecond} ${populationDiffPerSecond > 0 ? 'More' : 'Less'}`}</span>
+          <span>{` people are receiving sunlight`}</span>
+        </div>
+      </Row>
+      <Row>
+        <Col>
+        <div className="description">
+          <p>
+            The sun is something we all share. Each day (for the most part) we take turns in enjoying our marvelous sun. Exposure to sunlight increases the brain’s release of serotonin, stabilizing our mood and increasing feelings of well-being.
+          </p>
+          <p>
+            This calculation uses United Nation's 2020 world population distribution estimate gathered through <a href="https://sedac.ciesin.columbia.edu/data/set/gpw-v4-admin-unit-center-points-population-estimates-rev11/data-download" target="_blank" rel="noopener noreferrer">NASA’s Socioeconomic Data and Applications Center (SEDAC)</a>.
+          </p>
+
+        </div>
+        </Col>
+      </Row>
+      <div className="footer">
+        Made with ❤️&nbsp;by Tirta Rachman - View on GitHub - Report Bug
+      </div>
     </Container>
   );
 }

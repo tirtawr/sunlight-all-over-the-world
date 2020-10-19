@@ -1,21 +1,91 @@
+body {
+  background-color: #F7F7FF;
+  min-height: 100vh;
+}
+
 body h1 {
   font-family: 'Poppins', sans-serif;
+  color: #495867;
+  margin-bottom: 2rem;
 }
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .map-container {
   position: relative;
   margin: 1rem auto;
-  border: 4px black solid;
+  border: 4px #495867 solid;
   border-radius: 4px;
-
+  margin-bottom: 2rem;
   width: 400px;
   height: calc(150 / 180 * 400px);
 }
 
 .population-count {
-  font-size: 4rem;
+  color: #577399 !important;
+  font-size: 5rem;
   text-align: center;
+  font-family: 'Anonymous Pro', monospace;
+  color: #495867;
+}
+
+.population-count-label {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #495867;
+}
+
+.date-slider {
+  width: 600px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.fun-fact {
+  font-family: 'Poppins', sans-serif;
+  color: #495867;
+  font-size: 1.5rem;
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fun-fact-number {
+  color: #577399;
+  font-size: 3rem;
+  font-weight: bold;
   font-family: 'Anonymous Pro', monospace;
 }
 
+.description {
+  padding-top: 2rem;
+  font-family: 'Poppins', sans-serif;
+  width: 450px; 
+  margin: auto;
+  text-align: justify;
+}
 
+.description a {
+  color: #FE5F55;
+}
+
+.description a:hover {
+  color: #FE5F55;
+}
+
+.footer {
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+}
 
