@@ -19,6 +19,7 @@ footer {
   padding: 12px;
   font-family: 'Anonymous Pro', monospace;
   font-size: 12px;
+  height: 42px
 }
 
 body h1 {
@@ -120,5 +121,8 @@ body a:hover {
   .map-container {
     width: 200px;
     height: calc(150 / 180 * 200px);
+  }
+  footer {
+    font-size: 8px;
   }
 }
