@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "80e3c95aa08b222d433290fe70176be8",
+    "revision": "853449c1f5052f9038a266caf9e0d7e3",
     "url": "/sunlight-all-over-the-world/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sunlight-all-over-the-world/static/css/2.d9df7b93.chunk.css"
   },
   {
-    "revision": "5e2adf4889bc631cc84d",
+    "revision": "5f453beba3887924fb8b",
     "url": "/sunlight-all-over-the-world/static/css/main.85e5f799.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sunlight-all-over-the-world/static/js/2.1a7d059a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5e2adf4889bc631cc84d",
-    "url": "/sunlight-all-over-the-world/static/js/main.19699a87.chunk.js"
+    "revision": "5f453beba3887924fb8b",
+    "url": "/sunlight-all-over-the-world/static/js/main.4f912468.chunk.js"
   },
   {
     "revision": "dc5743cd96cde7fba124",
