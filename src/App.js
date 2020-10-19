@@ -163,7 +163,7 @@ function App() {
         </Container>
       </main>
       <footer>
-        Made with ♥ by <a href="https://tirtawr.com" target="_blank" rel="noopener noreferrer">Tirta Rachman</a> - <a href="https://github.com/tirtawr/sunlight-all-over-the-world" target="_blank" rel="noopener noreferrer">View on GitHub</a> - <a href="https://github.com/tirtawr/sunlight-all-over-the-world/issues" target="_blank" rel="noopener noreferrer">Report A Bug</a>
+        Made with ♥ by <a href="https://tirtawr.com" target="_blank" rel="noopener noreferrer">Tirta Rachman</a> - <a href="https://github.com/tirtawr/sunlight-all-over-the-world" target="_blank" rel="noopener noreferrer">View on GitHub</a> - <a href="https://github.com/tirtawr/sunlight-all-over-the-world/issues" target="_blank" rel="noopener noreferrer">Sugest an improvement</a>
       </footer>
     </div>
   );
