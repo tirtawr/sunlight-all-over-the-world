@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.ea7251d2.chunk.css",
-    "main.js": "/static/js/main.105a1f3f.chunk.js",
-    "main.js.map": "/static/js/main.105a1f3f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.1be37cd0.js",
-    "runtime-main.js.map": "/static/js/runtime-main.1be37cd0.js.map",
-    "static/css/2.d9df7b93.chunk.css": "/static/css/2.d9df7b93.chunk.css",
-    "static/js/2.7d843fdd.chunk.js": "/static/js/2.7d843fdd.chunk.js",
-    "static/js/2.7d843fdd.chunk.js.map": "/static/js/2.7d843fdd.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.c32df10691e09aa7b958676f7de92ccd.js": "/precache-manifest.c32df10691e09aa7b958676f7de92ccd.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.d9df7b93.chunk.css.map": "/static/css/2.d9df7b93.chunk.css.map",
-    "static/css/main.ea7251d2.chunk.css.map": "/static/css/main.ea7251d2.chunk.css.map",
-    "static/js/2.7d843fdd.chunk.js.LICENSE.txt": "/static/js/2.7d843fdd.chunk.js.LICENSE.txt"
+    "main.css": "/sunlight-all-over-the-world/static/css/main.ea7251d2.chunk.css",
+    "main.js": "/sunlight-all-over-the-world/static/js/main.af925b41.chunk.js",
+    "main.js.map": "/sunlight-all-over-the-world/static/js/main.af925b41.chunk.js.map",
+    "runtime-main.js": "/sunlight-all-over-the-world/static/js/runtime-main.f21a386f.js",
+    "runtime-main.js.map": "/sunlight-all-over-the-world/static/js/runtime-main.f21a386f.js.map",
+    "static/css/2.d9df7b93.chunk.css": "/sunlight-all-over-the-world/static/css/2.d9df7b93.chunk.css",
+    "static/js/2.1a7d059a.chunk.js": "/sunlight-all-over-the-world/static/js/2.1a7d059a.chunk.js",
+    "static/js/2.1a7d059a.chunk.js.map": "/sunlight-all-over-the-world/static/js/2.1a7d059a.chunk.js.map",
+    "index.html": "/sunlight-all-over-the-world/index.html",
+    "precache-manifest.6aa2de6ad1567c42e390473aea48945b.js": "/sunlight-all-over-the-world/precache-manifest.6aa2de6ad1567c42e390473aea48945b.js",
+    "service-worker.js": "/sunlight-all-over-the-world/service-worker.js",
+    "static/css/2.d9df7b93.chunk.css.map": "/sunlight-all-over-the-world/static/css/2.d9df7b93.chunk.css.map",
+    "static/css/main.ea7251d2.chunk.css.map": "/sunlight-all-over-the-world/static/css/main.ea7251d2.chunk.css.map",
+    "static/js/2.1a7d059a.chunk.js.LICENSE.txt": "/sunlight-all-over-the-world/static/js/2.1a7d059a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1be37cd0.js",
+    "static/js/runtime-main.f21a386f.js",
     "static/css/2.d9df7b93.chunk.css",
-    "static/js/2.7d843fdd.chunk.js",
+    "static/js/2.1a7d059a.chunk.js",
     "static/css/main.ea7251d2.chunk.css",
-    "static/js/main.105a1f3f.chunk.js"
+    "static/js/main.af925b41.chunk.js"
   ]
 }
