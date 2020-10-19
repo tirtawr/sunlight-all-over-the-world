@@ -37,7 +37,7 @@ function Map({ currentDate }) {
           }
         });
 
-        map.fitBounds([[-180, 90], [180, -60]], {
+        map.fitBounds([[-180, 90], [180, -50]], {
           padding: { top: 0, bottom: 0, left: 0, right: 0 }
         });
       });
