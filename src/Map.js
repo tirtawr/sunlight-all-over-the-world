@@ -2,7 +2,6 @@ import React from "react";
 import mapboxgl from 'mapbox-gl';
 
 import getDarknessPolygon from './getDarknessPolygon'
-import getPopulationInDaylight from './getPopulationInDaylight'
 
 class Map extends React.Component {
   constructor(props) {
@@ -17,11 +16,6 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-
-    const populationInDaylight = getPopulationInDaylight(new Date());
-
-    console.log('populationInDaylight', populationInDaylight);
-
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v11',
@@ -47,7 +41,7 @@ class Map extends React.Component {
         }
       });
 
-      map.fitBounds([[-180, 90], [180, -90]], {
+      map.fitBounds([[-180, 90], [180, -60]], {
         padding: { top: 0, bottom: 0, left: 0, right: 0 }
       });
     });

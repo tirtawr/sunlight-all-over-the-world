@@ -4,6 +4,12 @@
   border: 4px black solid;
   border-radius: 4px;
 
-  height: 400px;
   width: 400px;
+  height: calc(150 / 180 * 400px);
+}
+
+.population-count {
+  font-size: 4rem;
+  text-align: center;
+  font-family: 'Source Sans Pro', monospace;
 }

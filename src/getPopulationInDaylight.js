@@ -17,6 +17,7 @@ function getPopulation(longitude, latitude) {
 }
 
 function getPopulationInDaylight(date) {
+  console.log('getPopulationInDaylight', date)
   date = (date instanceof Date) ? date : new Date();
 
   const darknessPolygon = getDarknessPolygon(date);
