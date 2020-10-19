@@ -3,7 +3,6 @@ import mapboxgl from 'mapbox-gl';
 
 import getDarknessPolygon from './getDarknessPolygon'
 import getPopulationInDaylight from './getPopulationInDaylight'
-import population from './population.json';
 
 class Map extends React.Component {
   constructor(props) {
@@ -12,19 +11,12 @@ class Map extends React.Component {
     this.state = {
       lng: 0, // Initial state for mapbox
       lat: 0, // Initial state for mapbox
-      zoom: 1, // Initial state for mapbox
+      zoom: 0, // Initial state for mapbox
       darknessPolygon: getDarknessPolygon(new Date())
     };
   }
 
   componentDidMount() {
-
-    // console.log('population.length', population.length);
-
-    // for (let i = 0; i < population.length; i++) {
-
-    //   console.log('population[i].length', population[i].length)
-    // }
 
     const populationInDaylight = getPopulationInDaylight(new Date());
 
@@ -39,13 +31,6 @@ class Map extends React.Component {
 
 
     map.on('load', () => {
-      // Add zoom and rotation controls to the map.
-      map.addControl(new mapboxgl.NavigationControl());
-      map.addControl(new mapboxgl.ScaleControl({
-        maxWidth: 240,
-        unit: 'metric'
-      }));
-
       map.addSource('darkness', {
         'type': 'geojson',
         'data': this.state.darknessPolygon
@@ -61,14 +46,18 @@ class Map extends React.Component {
           'fill-opacity': 0.2
         }
       });
+
+      map.fitBounds([[-180, 90], [180, -90]], {
+        padding: { top: 0, bottom: 0, left: 0, right: 0 }
+      });
     });
   }
 
   render() {
     return (
-      <div>
-        <div ref={el => this.mapContainer = el} className="mapContainer" />
-      </div>
+      <>
+        <div ref={el => this.mapContainer = el} className="map-container" />
+      </>
     )
   }
 }

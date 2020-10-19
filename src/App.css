@@ -1,7 +1,9 @@
-.mapContainer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
+.map-container {
+  position: relative;
+  margin: 1rem auto;
+  border: 4px black solid;
+  border-radius: 4px;
+
+  height: 400px;
+  width: 400px;
 }
