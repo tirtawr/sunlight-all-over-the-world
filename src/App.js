@@ -124,7 +124,7 @@ function App() {
           <Row>
             <Col>
               <div className="population-count-label">
-                Number of people receiving sunlight:
+                Number of people currently receiving sunlight:
           </div>
               <div className="population-count">
                 {displayedPopulationCount}
