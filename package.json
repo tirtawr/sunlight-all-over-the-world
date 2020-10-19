@@ -2,7 +2,7 @@
   "name": "sunlight-all-over-the-world",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/sunlight-all-over-the-world",
+  "homepage": "https://tirtawr.github.io/sunlight-all-over-the-world",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
