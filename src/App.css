@@ -97,3 +97,28 @@ body a {
 body a:hover {
   color: #FE5F55;
 }
+
+@media (max-width: 575.98px) {
+  html {
+    font-size: 10px;
+  }
+  .population-count { 
+    font-size: 4rem;
+  }
+  .fun-fact { 
+    font-size: 0.75rem;
+  }
+  .fun-fact-number {
+    font-size: 1.25rem;
+  }
+  .date-slider {
+    width: 200px;
+  }
+  .description {
+    width: 255px;
+  }
+  .map-container {
+    width: 200px;
+    height: calc(150 / 180 * 200px);
+  }
+}
