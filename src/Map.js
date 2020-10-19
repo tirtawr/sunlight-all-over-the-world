@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState, useRef } from "react";
 import mapboxgl from 'mapbox-gl';
 
 import getDarknessPolygon from './getDarknessPolygon'
 
-function Map() {
+function Map({ currentDate }) {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
 
@@ -22,7 +23,7 @@ function Map() {
 
         map.addSource('darkness', {
           'type': 'geojson',
-          'data': getDarknessPolygon(new Date())
+          'data': getDarknessPolygon(currentDate)
         });
 
         map.addLayer({
@@ -45,6 +46,10 @@ function Map() {
 
     if (!map) initializeMap({ setMap, mapContainer });
   }, [map]);
+
+  useEffect(() => {
+    if (map) map.getSource('darkness').setData(getDarknessPolygon(currentDate));
+  }, [currentDate])
 
   return (
     <>
