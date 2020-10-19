@@ -35,7 +35,7 @@ function DateSlider({ value, onChange, onAfterChange }) {
         tooltipPlacement={'bottom'}
         tooltipLabel={tooltipLabelFormatter}
         tooltipStyle={{
-          'font-family': "'Poppins', sans-serif"
+          'fontFamily': "'Poppins', sans-serif"
         }}
       />
     </div>

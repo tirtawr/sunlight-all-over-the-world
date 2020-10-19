@@ -45,7 +45,6 @@ function App() {
     let current = populationCount;
     const diffPerSecond = (target - populationCount) / 300;
     setPopulationDiffPerSecond(diffPerSecond)
-    console.log('[easedSetPopulationCount] diffPerSecond', diffPerSecond)
     let counter = 0;
     const miniTick = () => {
       if (counter >= 300) {
@@ -70,7 +69,6 @@ function App() {
 
   useEffect(() => {
     if (populationCount > 0) {
-      console.log('[useEffect] new populationCount', populationCount)
       setPopulationPercentage(Math.round(populationCount / 7800000000 * 100))
       const target = getPopulationInDaylight(new Date(currentDate.getTime() + 5 * 60 * 1000))
       setTargetPopulationCount(target)
@@ -79,7 +77,6 @@ function App() {
 
   useEffect(() => {
     if (targetPopulationCount > 0) {
-      console.log('[useEffect] new targetPopulationCount', targetPopulationCount)
       easedSetPopulationCount(targetPopulationCount)
     }
   }, [targetPopulationCount])
