@@ -157,6 +157,9 @@ function App() {
                 <p>
                   This calculation uses United Nation's 2020 world population distribution estimate gathered through <a href="https://sedac.ciesin.columbia.edu/data/set/gpw-v4-admin-unit-center-points-population-estimates-rev11/data-download" target="_blank" rel="noopener noreferrer">NASA’s Socioeconomic Data and Applications Center (SEDAC)</a>.
                 </p>
+                <p>
+                  Sunlight is defined by the duration between civil dawn and civil twilight, when the sun is 6 degrees below the horizon.
+                </p>
               </div>
             </Col>
           </Row>
