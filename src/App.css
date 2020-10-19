@@ -1,3 +1,6 @@
+body h1 {
+  font-family: 'Poppins', sans-serif;
+}
 .map-container {
   position: relative;
   margin: 1rem auto;
@@ -11,5 +14,8 @@
 .population-count {
   font-size: 4rem;
   text-align: center;
-  font-family: 'Source Sans Pro', monospace;
+  font-family: 'Anonymous Pro', monospace;
 }
+
+
+
