@@ -29,9 +29,16 @@ function App() {
     useEasing: true
   });
 
+  const { countUp: populationPercentage, update: setPopulationPercentage, pauseResume: togglePopulationPercentageAnimation } = useCountUp({
+    start: 0,
+    end: 0,
+    duration: 1,
+    separator: ',',
+    useEasing: true
+  });
+
   const [targetPopulationCount, setTargetPopulationCount] = useState(0)
   const [populationCount, setPopulationCount] = useState(0)
-  const [populationPercentage, setPopulationPercentage] = useState(0)
   const [populationDiffPerSecond, setPopulationDiffPerSecond] = useState(0)
   const [currentDate, setCurrentDate] = useState(new Date())
   const [hourOffset, setHourOffset] = useState(0)
@@ -69,6 +76,7 @@ function App() {
 
   useEffect(() => {
     if (populationCount > 0) {
+      togglePopulationPercentageAnimation()
       setPopulationPercentage(Math.round(populationCount / 7800000000 * 100))
       const target = getPopulationInDaylight(new Date(currentDate.getTime() + 5 * 60 * 1000))
       setTargetPopulationCount(target)
